@@ -6,10 +6,19 @@ import abdulkabirImage from "@/assets/team/abdulkabir-yahaya.jpg";
 import zakariyaImage from "@/assets/team/dev-zakariya.jpg";
 
 const teamMembers = {
+  management: [
+    {
+      name: "Engr. Al-ameen Rabiu",
+      role: "Managing Director (MD)",
+      bio: "Visionary leader driving innovation and strategic growth across all departments.",
+      image: alameenImage,
+      socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
+    },
+  ],
   technology: [
     {
       name: "Engr. Al-ameen Rabiu",
-      role: "Management",
+      role: "Software Engineer, AI Engineer",
       bio: "Visionary leader driving innovation and strategic growth across all departments.",
       image: alameenImage,
       socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
@@ -57,6 +66,7 @@ const teamMembers = {
 };
 
 const departments = [
+  { key: "management", label: "Management", color: "bg-amber-500/10 text-amber-500" },
   { key: "technology", label: "Technology & Innovation", color: "bg-primary/10 text-primary" },
   { key: "multimedia", label: "Multimedia & Creative", color: "bg-purple-500/10 text-purple-500" },
   { key: "engineering", label: "Engineering & Technical Services", color: "bg-emerald-500/10 text-emerald-500" },
