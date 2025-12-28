@@ -22,8 +22,38 @@ import {
 } from "lucide-react";
 
 const services = {
+  technology: {
+    title: "Technology & Innovation",
+    description: "Cutting-edge digital solutions that transform ideas into powerful, scalable applications.",
+    icon: Code,
+    color: "from-primary to-blue-400",
+    bgColor: "bg-primary/10",
+    iconColor: "text-primary",
+    items: [
+      {
+        icon: Globe,
+        title: "Web Development",
+        description: "Modern, responsive websites and web applications built with latest technologies.",
+      },
+      {
+        icon: Server,
+        title: "Software Solutions",
+        description: "Custom software tailored to your unique business needs and workflows.",
+      },
+      {
+        icon: Cloud,
+        title: "Cloud Services",
+        description: "Scalable cloud infrastructure and migration services for modern businesses.",
+      },
+      {
+        icon: Database,
+        title: "API Development",
+        description: "Robust APIs that connect your systems and enable seamless integrations.",
+      },
+    ],
+  },
   multimedia: {
-    title: "Multimedia",
+    title: "Multimedia & Creative",
     description: "Creative solutions that captivate audiences and communicate your brand message effectively.",
     icon: Palette,
     color: "from-purple-500 to-pink-500",
@@ -57,38 +87,8 @@ const services = {
       },
     ],
   },
-  software: {
-    title: "Software",
-    description: "Cutting-edge digital solutions that transform ideas into powerful, scalable applications.",
-    icon: Code,
-    color: "from-primary to-blue-400",
-    bgColor: "bg-primary/10",
-    iconColor: "text-primary",
-    items: [
-      {
-        icon: Globe,
-        title: "Web Development",
-        description: "Modern, responsive websites and web applications built with latest technologies.",
-      },
-      {
-        icon: Server,
-        title: "Software Solutions",
-        description: "Custom software tailored to your unique business needs and workflows.",
-      },
-      {
-        icon: Cloud,
-        title: "Cloud Services",
-        description: "Scalable cloud infrastructure and migration services for modern businesses.",
-      },
-      {
-        icon: Database,
-        title: "API Development",
-        description: "Robust APIs that connect your systems and enable seamless integrations.",
-      },
-    ],
-  },
   engineering: {
-    title: "Engineering",
+    title: "Engineering & Technical Services",
     description: "Reliable hardware solutions and technical support that keep your operations running smoothly.",
     icon: Wrench,
     color: "from-emerald-500 to-teal-500",
