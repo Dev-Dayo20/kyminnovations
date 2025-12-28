@@ -1,60 +1,41 @@
 import { Layout } from "@/components/layout/Layout";
 import { Linkedin, Twitter, Mail } from "lucide-react";
 
+import alameenImage from "@/assets/team/alameen-rabiu.png";
+import abdulkabirImage from "@/assets/team/abdulkabir-yahaya.jpg";
+import zakariyaImage from "@/assets/team/dev-zakariya.jpg";
+
 const teamMembers = {
-  management: [
-    {
-      name: "Sarah Mitchell",
-      role: "Project Manager",
-      bio: "Strategic leader with 10+ years experience in tech project management.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "sarah@kymetra.com" },
-    },
-  ],
   technology: [
     {
-      name: "David Park",
-      role: "Lead Developer",
-      bio: "Full-stack expert building scalable solutions with modern technologies.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "david@kymetra.com" },
+      name: "Engr. Al-ameen Rabiu",
+      role: "Management",
+      bio: "Visionary leader driving innovation and strategic growth across all departments.",
+      image: alameenImage,
+      socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
     },
     {
-      name: "Emma Thompson",
-      role: "Backend Engineer",
-      bio: "Database and API specialist ensuring robust and secure systems.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", email: "emma@kymetra.com" },
+      name: "Abdulkabir Yahaya",
+      role: "Software Developer, Creative Lead, Digital & Visual Designer",
+      bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
+      image: abdulkabirImage,
+      socials: { email: "abdulkabir@kymetra.com" },
     },
     {
-      name: "Michael Lee",
-      role: "Frontend Developer",
-      bio: "Creating seamless user experiences with React and modern web technologies.",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "michael@kymetra.com" },
+      name: "Dev Zakariya",
+      role: "Software Developer, AI Engineer, Cybersecurity",
+      bio: "Security-focused developer building intelligent and secure software solutions.",
+      image: zakariyaImage,
+      socials: { email: "zakariya@kymetra.com" },
     },
   ],
   multimedia: [
     {
-      name: "Alex Chen",
-      role: "Creative Director",
-      bio: "Award-winning designer with a passion for innovative visual storytelling.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "alex@kymetra.com" },
-    },
-    {
-      name: "Maya Rodriguez",
-      role: "UI/UX Designer",
-      bio: "User experience expert creating intuitive and beautiful interfaces.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", email: "maya@kymetra.com" },
-    },
-    {
-      name: "James Wilson",
-      role: "Motion Designer",
-      bio: "Bringing brands to life through captivating animations and motion graphics.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "james@kymetra.com" },
+      name: "Abdulkabir Yahaya",
+      role: "Software Developer, Creative Lead, Digital & Visual Designer",
+      bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
+      image: abdulkabirImage,
+      socials: { email: "abdulkabir@kymetra.com" },
     },
   ],
   engineering: [
@@ -76,7 +57,6 @@ const teamMembers = {
 };
 
 const departments = [
-  { key: "management", label: "Management", color: "bg-amber-500/10 text-amber-500" },
   { key: "technology", label: "Technology & Innovation", color: "bg-primary/10 text-primary" },
   { key: "multimedia", label: "Multimedia & Creative", color: "bg-purple-500/10 text-purple-500" },
   { key: "engineering", label: "Engineering & Technical Services", color: "bg-emerald-500/10 text-emerald-500" },
