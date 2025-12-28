@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import kymetraLogo from "@/assets/kymetra-logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -44,9 +45,11 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-shadow duration-300">
-              <span className="text-primary-foreground font-bold text-xl">K</span>
-            </div>
+            <img 
+              src={kymetraLogo} 
+              alt="KYMETRA Logo" 
+              className="h-10 w-auto"
+            />
             <span className="text-xl font-bold text-foreground tracking-tight">
               KYMETRA
             </span>
