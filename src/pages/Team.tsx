@@ -102,11 +102,110 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Team Sections */}
-      {departments.map((dept, deptIndex) => (
+      {/* Management Section - Special Layout */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom mx-auto">
+          <div className="flex items-center gap-4 mb-12">
+            <span className="px-4 py-2 rounded-lg text-sm font-medium bg-amber-500/10 text-amber-500">
+              Management
+            </span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* MD Profile Card */}
+            <div className="group bg-card rounded-2xl border border-border overflow-hidden card-hover">
+              <div className="relative aspect-square overflow-hidden">
+                <img
+                  src={teamMembers.management[0].image}
+                  alt={teamMembers.management[0].name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80" />
+                
+                <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  {teamMembers.management[0].socials.twitter && (
+                    <a
+                      href={teamMembers.management[0].socials.twitter}
+                      className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      <Twitter className="w-4 h-4" />
+                    </a>
+                  )}
+                  {teamMembers.management[0].socials.email && (
+                    <a
+                      href={`mailto:${teamMembers.management[0].socials.email}`}
+                      className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-1">
+                  {teamMembers.management[0].name}
+                </h3>
+                <p className="text-primary font-medium text-sm mb-3">
+                  {teamMembers.management[0].role}
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {teamMembers.management[0].bio}
+                </p>
+              </div>
+            </div>
+
+            {/* About MD Section */}
+            <div className="bg-card rounded-2xl border border-border p-8 flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-foreground mb-6">About the MD</h3>
+              
+              {/* Working Experience */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-primary mb-3">Working Experience</h4>
+                <div className="space-y-3">
+                  <div className="bg-secondary/50 rounded-lg p-4 border border-border/30">
+                    <p className="font-medium text-foreground">Proxy Softwares</p>
+                    <p className="text-muted-foreground text-sm">IT Support</p>
+                  </div>
+                  <div className="bg-secondary/50 rounded-lg p-4 border border-border/30">
+                    <p className="font-medium text-foreground">Freelancer</p>
+                    <p className="text-muted-foreground text-sm">IT Consultant</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-3">Certifications</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    Web Design & Development
+                  </span>
+                  <span className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    Python for Data Science
+                  </span>
+                  <span className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    B.Sc Computer Science & IT
+                  </span>
+                  <span className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    NYSC Certificate
+                  </span>
+                  <span className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    Business Administration & Management
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Other Team Sections */}
+      {departments.slice(1).map((dept, deptIndex) => (
         <section
           key={dept.key}
-          className={`section-padding ${deptIndex % 2 === 0 ? "bg-secondary/30" : ""}`}
+          className={`section-padding ${deptIndex % 2 === 1 ? "bg-secondary/30" : ""}`}
         >
           <div className="container-custom mx-auto">
             <div className="flex items-center gap-4 mb-12">
