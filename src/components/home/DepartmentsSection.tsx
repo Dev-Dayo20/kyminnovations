@@ -3,18 +3,8 @@ import { Palette, Code, Wrench, ArrowUpRight } from "lucide-react";
 
 const departments = [
   {
-    icon: Palette,
-    title: "Multimedia",
-    description:
-      "Graphic design, UI/UX, motion design, 3D animations, and video editing that captivate and engage.",
-    services: ["Graphic Design", "UI/UX Design", "Motion Design", "3D Animation", "Video Editing"],
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
-    iconColor: "text-purple-500",
-  },
-  {
     icon: Code,
-    title: "Software",
+    title: "Technology & Innovation",
     description:
       "Web and software development, digital products, and custom solutions that solve real problems.",
     services: ["Web Development", "Software Solutions", "Digital Products", "API Integration", "Cloud Services"],
@@ -23,8 +13,18 @@ const departments = [
     iconColor: "text-primary",
   },
   {
+    icon: Palette,
+    title: "Multimedia & Creative",
+    description:
+      "Graphic design, UI/UX, motion design, 3D animations, and video editing that captivate and engage.",
+    services: ["Graphic Design", "UI/UX Design", "Motion Design", "3D Animation", "Video Editing"],
+    color: "from-purple-500 to-pink-500",
+    bgColor: "bg-purple-500/10",
+    iconColor: "text-purple-500",
+  },
+  {
     icon: Wrench,
-    title: "Engineering",
+    title: "Engineering & Technical Services",
     description:
       "Computer repairs, hardware servicing, and sales of systems and accessories you can rely on.",
     services: ["Computer Repairs", "Hardware Servicing", "System Sales", "IT Support", "Network Setup"],

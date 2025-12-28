@@ -169,9 +169,9 @@ const About = () => {
           <div className="relative max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { name: "Multimedia", desc: "Creates the visual identity and user experience" },
-                { name: "Software", desc: "Builds the digital infrastructure and functionality" },
-                { name: "Engineering", desc: "Ensures reliable hardware and technical support" },
+                { name: "Technology & Innovation", desc: "Builds the digital infrastructure and functionality" },
+                { name: "Multimedia & Creative", desc: "Creates the visual identity and user experience" },
+                { name: "Engineering & Technical Services", desc: "Ensures reliable hardware and technical support" },
               ].map((dept, index) => (
                 <div
                   key={dept.name}

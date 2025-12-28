@@ -11,6 +11,29 @@ const teamMembers = {
       socials: { linkedin: "#", twitter: "#", email: "sarah@kymetra.com" },
     },
   ],
+  technology: [
+    {
+      name: "David Park",
+      role: "Lead Developer",
+      bio: "Full-stack expert building scalable solutions with modern technologies.",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      socials: { linkedin: "#", twitter: "#", email: "david@kymetra.com" },
+    },
+    {
+      name: "Emma Thompson",
+      role: "Backend Engineer",
+      bio: "Database and API specialist ensuring robust and secure systems.",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+      socials: { linkedin: "#", email: "emma@kymetra.com" },
+    },
+    {
+      name: "Michael Lee",
+      role: "Frontend Developer",
+      bio: "Creating seamless user experiences with React and modern web technologies.",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+      socials: { linkedin: "#", twitter: "#", email: "michael@kymetra.com" },
+    },
+  ],
   multimedia: [
     {
       name: "Alex Chen",
@@ -34,29 +57,6 @@ const teamMembers = {
       socials: { linkedin: "#", twitter: "#", email: "james@kymetra.com" },
     },
   ],
-  software: [
-    {
-      name: "David Park",
-      role: "Lead Developer",
-      bio: "Full-stack expert building scalable solutions with modern technologies.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "david@kymetra.com" },
-    },
-    {
-      name: "Emma Thompson",
-      role: "Backend Engineer",
-      bio: "Database and API specialist ensuring robust and secure systems.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", email: "emma@kymetra.com" },
-    },
-    {
-      name: "Michael Lee",
-      role: "Frontend Developer",
-      bio: "Creating seamless user experiences with React and modern web technologies.",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", twitter: "#", email: "michael@kymetra.com" },
-    },
-  ],
   engineering: [
     {
       name: "Robert Johnson",
@@ -77,9 +77,9 @@ const teamMembers = {
 
 const departments = [
   { key: "management", label: "Management", color: "bg-amber-500/10 text-amber-500" },
-  { key: "multimedia", label: "Multimedia", color: "bg-purple-500/10 text-purple-500" },
-  { key: "software", label: "Software", color: "bg-primary/10 text-primary" },
-  { key: "engineering", label: "Engineering", color: "bg-emerald-500/10 text-emerald-500" },
+  { key: "technology", label: "Technology & Innovation", color: "bg-primary/10 text-primary" },
+  { key: "multimedia", label: "Multimedia & Creative", color: "bg-purple-500/10 text-purple-500" },
+  { key: "engineering", label: "Engineering & Technical Services", color: "bg-emerald-500/10 text-emerald-500" },
 ];
 
 const Team = () => {
