@@ -1,9 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
-import { Linkedin, Twitter, Mail } from "lucide-react";
+import { Linkedin, Twitter, Mail, Instagram } from "lucide-react";
 
 import alameenImage from "@/assets/team/alameen-rabiu.png";
 import abdulkabirImage from "@/assets/team/abdulkabir-yahaya.jpg";
 import zakariyaImage from "@/assets/team/dev-zakariya.jpg";
+import ahmadImage from "@/assets/team/ahmad-musa-saddiq.jpg";
 
 const teamMembers = {
   management: [
@@ -19,7 +20,7 @@ const teamMembers = {
     {
       name: "Engr. Al-ameen Rabiu",
       role: "Software Engineer, AI Engineer",
-      bio: "Visionary leader driving innovation and strategic growth across all departments.",
+      bio: "Visionary leader and Software/AI Engineer driving innovation, building intelligent systems, and leading strategic growth in technology solutions.",
       image: alameenImage,
       socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
     },
@@ -28,7 +29,7 @@ const teamMembers = {
       role: "Software Developer, Creative Lead, Digital & Visual Designer",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
-      socials: { email: "abdulkabir@kymetra.com" },
+      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "abdulkabir@kymetra.com" },
     },
     {
       name: "Dev Zakariya",
@@ -44,7 +45,14 @@ const teamMembers = {
       role: "Software Developer, Creative Lead, Digital & Visual Designer",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
-      socials: { email: "abdulkabir@kymetra.com" },
+      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "abdulkabir@kymetra.com" },
+    },
+    {
+      name: "Ahmad Musa Saddiq",
+      role: "3D Animations, Motion Graphics, Video Editor, VFX Artist",
+      bio: "Creative visual artist specializing in bringing stories to life through stunning 3D animations and motion graphics.",
+      image: ahmadImage,
+      socials: { email: "ahmad@kymetra.com" },
     },
   ],
   engineering: [
@@ -139,6 +147,14 @@ const Team = () => {
                           className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
                           <Twitter className="w-4 h-4" />
+                        </a>
+                      )}
+                      {member.socials.instagram && (
+                        <a
+                          href={member.socials.instagram}
+                          className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                        >
+                          <Instagram className="w-4 h-4" />
                         </a>
                       )}
                       {member.socials.email && (
