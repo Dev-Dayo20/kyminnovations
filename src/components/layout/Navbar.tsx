@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -69,8 +70,9 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Button & Theme Toggle */}
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
             <Button asChild variant="hero" size="default">
               <Link to="/contact">Get Started</Link>
             </Button>
@@ -112,6 +114,10 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <div className="flex items-center justify-between pt-2 border-t border-border/50">
+              <span className="text-sm text-muted-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
             <Button asChild variant="hero" size="lg" className="w-full mt-4">
               <Link to="/contact">Get Started</Link>
             </Button>
