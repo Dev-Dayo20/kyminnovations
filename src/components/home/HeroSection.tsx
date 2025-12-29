@@ -41,8 +41,8 @@ export const HeroSection = () => {
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-up animation-delay-200">
             KYMETRA is a multidisciplinary technology company delivering 
-            innovative multimedia design, cutting-edge software solutions, 
-            and expert engineering services that transform ideas into reality.
+            innovative multimedia & creative solutions, cutting-edge technology & innovation, 
+            and expert engineering & technical services that transform ideas into reality.
           </p>
 
           {/* CTA Buttons */}

@@ -29,7 +29,7 @@ const teamMembers = {
       role: "Software Developer, Creative Lead, Digital & Visual Designer",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
-      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "abdulkabir@kymetra.com" },
+      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
     },
     {
       name: "Dev Zakariya",
@@ -45,7 +45,7 @@ const teamMembers = {
       role: "Software Developer, Creative Lead, Digital & Visual Designer",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
-      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "abdulkabir@kymetra.com" },
+      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
     },
     {
       name: "Ahmad Musa Saddiq",
@@ -114,7 +114,7 @@ const Team = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* MD Profile Card */}
-            <div className="group bg-card rounded-2xl border border-border overflow-hidden card-hover">
+            <div className="group bg-card rounded-2xl border border-border overflow-hidden card-hover max-w-md mx-auto lg:mx-0">
               <div className="relative aspect-square overflow-hidden">
                 <img
                   src={teamMembers.management[0].image}
