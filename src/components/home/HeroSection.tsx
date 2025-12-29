@@ -60,9 +60,9 @@ export const HeroSection = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-border/50 animate-fade-up animation-delay-400">
-            {[
-              { value: "150+", label: "Projects Delivered" },
-              { value: "50+", label: "Happy Clients" },
+          {[
+              { value: "10+", label: "Projects Delivered" },
+              { value: "10+", label: "Happy Clients" },
               { value: "3", label: "Departments" },
               { value: "5+", label: "Years Experience" },
             ].map((stat, index) => (
@@ -77,12 +77,13 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Commented out
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
+      */}
     </section>
   );
 };
