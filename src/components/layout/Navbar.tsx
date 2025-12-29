@@ -4,7 +4,9 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "next-themes";
 import kymetraLogo from "@/assets/kymetra-logo.png";
+import kymetraLogoWhite from "@/assets/kymetra-logo-white.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -19,6 +21,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +49,7 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img 
-              src={kymetraLogo} 
+              src={theme === "dark" ? kymetraLogoWhite : kymetraLogo} 
               alt="KYMETRA Logo" 
               className="h-10 w-auto"
             />

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github } from "lucide-react";
+import { useTheme } from "next-themes";
+import kymetraLogo from "@/assets/kymetra-logo.png";
+import kymetraLogoWhite from "@/assets/kymetra-logo-white.png";
 
 const footerLinks = {
   company: [
@@ -30,6 +33,8 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  const { theme } = useTheme();
+  
   return (
     <footer className="bg-card border-t border-border">
       <div className="container-custom mx-auto section-padding">
@@ -38,9 +43,11 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
-                <span className="text-primary-foreground font-bold text-xl">K</span>
-              </div>
+              <img 
+                src={theme === "dark" ? kymetraLogoWhite : kymetraLogo} 
+                alt="KYMETRA Logo" 
+                className="h-10 w-auto"
+              />
               <span className="text-xl font-bold text-foreground tracking-tight">
                 KYMETRA
               </span>
