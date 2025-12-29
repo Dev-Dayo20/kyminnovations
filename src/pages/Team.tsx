@@ -26,7 +26,7 @@ const teamMembers = {
     },
     {
       name: "Abdulkabir Yahaya",
-      role: "Software Developer, Creative Lead, Digital & Visual Designer",
+      role: "Software Developer, Creative Tech Lead, Design & Visual Designer, Visual Identity Design Expert",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
       socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
@@ -42,7 +42,7 @@ const teamMembers = {
   multimedia: [
     {
       name: "Abdulkabir Yahaya",
-      role: "Software Developer, Creative Lead, Digital & Visual Designer",
+      role: "Software Developer, Creative Tech Lead, Design & Visual Designer, Visual Identity Design Expert",
       bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
       image: abdulkabirImage,
       socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
