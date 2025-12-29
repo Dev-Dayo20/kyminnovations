@@ -1,5 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Target, Eye, Heart, Users, Lightbulb, Shield } from "lucide-react";
+import { useTheme } from "next-themes";
+import kymetraLogo from "@/assets/kymetra-logo.png";
+import kymetraLogoWhite from "@/assets/kymetra-logo-white.png";
 
 const values = [
   {
@@ -25,6 +28,8 @@ const values = [
 ];
 
 const About = () => {
+  const { theme } = useTheme();
+  
   return (
     <Layout>
       {/* Hero Section */}
@@ -75,9 +80,11 @@ const About = () => {
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-2xl bg-primary flex items-center justify-center shadow-2xl shadow-primary/30">
-                  <span className="text-6xl font-bold text-primary-foreground">K</span>
-                </div>
+                <img 
+                  src={theme === "dark" ? kymetraLogoWhite : kymetraLogo} 
+                  alt="KYMETRA Logo" 
+                  className="w-32 h-32 object-contain"
+                />
               </div>
             </div>
           </div>

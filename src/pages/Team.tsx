@@ -55,22 +55,24 @@ const teamMembers = {
       socials: { email: "ahmad@kymetra.com" },
     },
   ],
-  engineering: [
-    {
-      name: "Robert Johnson",
-      role: "Engineering Lead",
-      bio: "Hardware expert with deep knowledge of enterprise IT systems.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", email: "robert@kymetra.com" },
-    },
-    {
-      name: "Lisa Chang",
-      role: "IT Specialist",
-      bio: "Troubleshooting pro dedicated to keeping systems running smoothly.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
-      socials: { linkedin: "#", email: "lisa@kymetra.com" },
-    },
-  ],
+  // Engineering section items commented out - will be updated soon
+  // engineering: [
+  //   {
+  //     name: "Robert Johnson",
+  //     role: "Engineering Lead",
+  //     bio: "Hardware expert with deep knowledge of enterprise IT systems.",
+  //     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
+  //     socials: { linkedin: "#", email: "robert@kymetra.com" },
+  //   },
+  //   {
+  //     name: "Lisa Chang",
+  //     role: "IT Specialist",
+  //     bio: "Troubleshooting pro dedicated to keeping systems running smoothly.",
+  //     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
+  //     socials: { linkedin: "#", email: "lisa@kymetra.com" },
+  //   },
+  // ],
+  engineering: [],
 };
 
 const departments = [
