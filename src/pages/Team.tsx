@@ -129,6 +129,8 @@ const Team = () => {
                   {teamMembers.management[0].socials.twitter && (
                     <a
                       href={teamMembers.management[0].socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                     >
                       <Twitter className="w-4 h-4" />
@@ -137,6 +139,8 @@ const Team = () => {
                   {teamMembers.management[0].socials.email && (
                     <a
                       href={`mailto:${teamMembers.management[0].socials.email}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                     >
                       <Mail className="w-4 h-4" />
@@ -237,6 +241,8 @@ const Team = () => {
                       {member.socials.linkedin && (
                         <a
                           href={member.socials.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
                           <Linkedin className="w-4 h-4" />
@@ -245,6 +251,8 @@ const Team = () => {
                       {member.socials.twitter && (
                         <a
                           href={member.socials.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
                           <Twitter className="w-4 h-4" />
@@ -253,6 +261,8 @@ const Team = () => {
                       {member.socials.instagram && (
                         <a
                           href={member.socials.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
                           <Instagram className="w-4 h-4" />
@@ -261,6 +271,8 @@ const Team = () => {
                       {member.socials.email && (
                         <a
                           href={`mailto:${member.socials.email}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
                           <Mail className="w-4 h-4" />
