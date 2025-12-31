@@ -1,10 +1,13 @@
+import proxySoftwareSystems from "@/assets/clients/proxy-software-systems.png";
+import kirkiraInnovationHub from "@/assets/clients/kirkira-innovation-hub.png";
+import kebramTech from "@/assets/clients/kebram-tech.png";
+import qfLogo from "@/assets/clients/qf-logo.png";
+
 const clients = [
-  "TechCorp",
-  "InnovateLab",
-  "DigitalFirst",
-  "FutureScale",
-  "CloudNine",
-  "DataDriven",
+  { name: "Proxy Software Systems", logo: proxySoftwareSystems },
+  { name: "Kirkira Innovation Hub", logo: kirkiraInnovationHub },
+  { name: "Kebram Tech", logo: kebramTech },
+  { name: "QF", logo: qfLogo },
 ];
 
 export const ClientsSection = () => {
@@ -20,10 +23,14 @@ export const ClientsSection = () => {
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
           {clients.map((client) => (
             <div
-              key={client}
-              className="text-2xl md:text-3xl font-bold text-muted-foreground/40 hover:text-muted-foreground/70 transition-colors duration-300 cursor-default"
+              key={client.name}
+              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 cursor-default"
             >
-              {client}
+              <img 
+                src={client.logo} 
+                alt={client.name} 
+                className="h-12 md:h-16 w-auto object-contain"
+              />
             </div>
           ))}
         </div>
