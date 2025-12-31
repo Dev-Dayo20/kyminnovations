@@ -141,7 +141,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-border/50 animate-fade-up animation-delay-400">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border/50 animate-fade-up animation-delay-400">
             {[
               { value: "10+", label: "Projects Delivered" },
               { value: "10+", label: "Happy Clients" },

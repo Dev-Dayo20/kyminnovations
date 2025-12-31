@@ -39,7 +39,7 @@ export const DepartmentsSection = () => {
     <section className="section-padding bg-secondary/30">
       <div className="container-custom mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Our Expertise
           </span>
