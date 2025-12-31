@@ -130,10 +130,10 @@ const Services = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               Our Services
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Comprehensive Solutions for Every Need
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               From creative design to complex software systems and reliable engineering, 
               we offer a full spectrum of services to help your business thrive.
             </p>
@@ -157,10 +157,10 @@ const Services = () => {
                 <service.icon className={`w-8 h-8 ${service.iconColor}`} />
               </div>
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   {service.title}
                 </h2>
-                <p className="text-muted-foreground max-w-xl">
+                <p className="text-sm text-muted-foreground max-w-xl">
                   {service.description}
                 </p>
               </div>
@@ -178,10 +178,10 @@ const Services = () => {
                   >
                     <item.icon className={`w-6 h-6 ${service.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">
+                  <h3 className="text-lg font-bold text-foreground mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -195,10 +195,10 @@ const Services = () => {
       <section className="section-padding">
         <div className="container-custom mx-auto">
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Need a Custom Solution?
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
               Don't see exactly what you need? We specialize in creating tailored 
               solutions that perfectly fit your unique requirements.
             </p>
