@@ -24,12 +24,11 @@ export const ClientsSection = () => {
           {clients.map((client) => (
             <div
               key={client.name}
-              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 cursor-default"
             >
               <img 
                 src={client.logo} 
                 alt={client.name} 
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-16 md:h-24 w-auto object-contain"
               />
             </div>
           ))}
