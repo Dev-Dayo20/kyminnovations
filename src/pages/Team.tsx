@@ -11,7 +11,7 @@ const teamMembers = {
     {
       name: "Engr. Al-ameen Rabiu",
       role: "Managing Director (MD)",
-      bio: "Visionary leader driving innovation and strategic growth across all departments.",
+      bio: "Leading the organization with a strong focus on innovation and long-term growth.",
       image: alameenImage,
       socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
     },
@@ -93,10 +93,10 @@ const Team = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               Our Team
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Meet the People Behind KYMETRA
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               A talented team of creative thinkers, technical experts, and 
               problem solvers dedicated to delivering excellence.
             </p>
