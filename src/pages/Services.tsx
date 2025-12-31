@@ -24,7 +24,7 @@ import {
 const services = {
   technology: {
     title: "Technology & Innovation",
-    description: "Cutting-edge digital solutions that transform ideas into powerful, scalable applications.",
+    description: "Building smart digital solutions that turn ideas into strong, scalable applications.",
     icon: Code,
     color: "from-primary to-blue-400",
     bgColor: "bg-primary/10",
