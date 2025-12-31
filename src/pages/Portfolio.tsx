@@ -120,10 +120,10 @@ const Portfolio = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               Our Portfolio
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Projects That Speak for Themselves
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Explore our diverse portfolio of successful projects across multimedia, 
               software, and engineering domains.
             </p>
