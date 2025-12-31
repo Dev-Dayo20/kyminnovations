@@ -40,10 +40,10 @@ const About = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               About KYMETRA
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Forging the Future Through Technology & Creativity
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Building the Future Through Technology & Creativity
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               At KYMETRA, we don't just plan we build. By combining our roots in 
               software and engineering with a passion for creative design, we help 
               businesses tackle their toughest challenges and turn concepts into 
