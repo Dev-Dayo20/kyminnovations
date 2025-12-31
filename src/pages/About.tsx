@@ -63,19 +63,19 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  KYMETRA was founded with a clear vision: to create a technology 
-                  company that could serve as a one-stop solution for businesses 
-                  seeking innovation, creativity, and technical excellence.
+                  We are an innovative company founded in December 2023 with a clear goal – to build smart, practical solutions that solve real problems. From the beginning, our focus has been on quality, simplicity, and impact.
                 </p>
                 <p>
-                  What started as a small team of passionate technologists has grown 
-                  into a comprehensive organization with three specialized departments, 
-                  each bringing unique expertise to the table.
+                  Our work is driven through three major departments: Technology & Innovation, Multimedia & Creative, and Engineering & Technical Services. Together, these teams help us design, build, and deliver solutions that meet modern business and digital needs.
                 </p>
                 <p>
-                  Today, we work with clients across industries, delivering solutions 
-                  that range from stunning visual designs to complex software systems 
-                  and reliable engineering services.
+                  One of our key solutions is the Smart Point of Sale system (SPOSS) – a powerful inventory and stock management platform designed to work across minimarts, stores, supermarkets, warehouses, pharmacies, and more. We also run an e-commerce platform that supports businesses in selling and managing products online with ease.
+                </p>
+                <p>
+                  Beyond building products, we are passionate about training and development. We offer hands-on learning programs that align with our mission of developing skilled individuals and creating high-quality, sustainable solutions.
+                </p>
+                <p>
+                  At our core, we believe innovation should be useful, accessible, and built to grow with people and businesses.
                 </p>
               </div>
             </div>
@@ -102,10 +102,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To empower businesses and individuals with innovative technology 
-                solutions that solve real problems, enhance creativity, and drive 
-                measurable success through our integrated approach to multimedia, 
-                software, and engineering services.
+                To build reliable and innovative technology solutions that put client satisfaction first, while empowering and inspiring future generations through the positive use of technology.
               </p>
             </div>
             <div className="bg-card rounded-2xl border border-border p-8 md:p-12">
@@ -114,9 +111,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To be the leading multidisciplinary technology partner, recognized 
-                globally for our innovative solutions, exceptional quality, and the 
-                transformative impact we create for our clients and communities.
+                To become a globally recognized company known for impactful solutions, innovation, and meaningful contributions to the future of technology.
               </p>
             </div>
           </div>
