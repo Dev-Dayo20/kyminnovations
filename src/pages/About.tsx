@@ -41,12 +41,13 @@ const About = () => {
               About KYMETRA
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Shaping the Future Through Technology & Creativity
+              Forging the Future Through Technology & Creativity
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We are a multidisciplinary technology company that brings together 
-              multimedia design, software development, and engineering expertise 
-              to deliver comprehensive solutions that drive success.
+              At KYMETRA, we don't just plan we build. By combining our roots in 
+              software and engineering with a passion for creative design, we help 
+              businesses tackle their toughest challenges and turn concepts into 
+              products that actually work.
             </p>
           </div>
         </div>
