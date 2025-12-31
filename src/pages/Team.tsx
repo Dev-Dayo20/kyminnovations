@@ -86,17 +86,17 @@ const Team = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
+      <section className="pt-20 pb-8 md:pt-28 md:pb-10 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
         <div className="container-custom mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-4xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Our Team
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
               Meet the People Behind KYMETRA
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               A talented team of creative thinkers, technical experts, and 
               problem solvers dedicated to delivering excellence.
             </p>
@@ -105,16 +105,16 @@ const Team = () => {
       </section>
 
       {/* Management Section - Special Layout */}
-      <section className="section-padding bg-secondary/30">
+      <section className="py-8 md:py-12 bg-secondary/30">
         <div className="container-custom mx-auto">
-          <div className="flex items-center gap-4 mb-8">
-            <span className="px-4 py-2 rounded-lg text-sm font-medium bg-amber-500/10 text-amber-500">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="px-3 py-1.5 rounded-lg text-sm font-medium bg-amber-500/10 text-amber-500">
               Management
             </span>
             <div className="h-px flex-1 bg-border" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
             {/* MD Profile Card */}
             <div className="group bg-card rounded-2xl border border-border overflow-hidden card-hover max-w-md mx-auto lg:mx-0">
               <div className="relative aspect-square overflow-hidden">
@@ -211,17 +211,17 @@ const Team = () => {
       {departments.slice(1).map((dept, deptIndex) => (
         <section
           key={dept.key}
-          className={`section-padding ${deptIndex % 2 === 1 ? "bg-secondary/30" : ""}`}
+          className={`py-8 md:py-12 ${deptIndex % 2 === 1 ? "bg-secondary/30" : ""}`}
         >
           <div className="container-custom mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <span className={`px-4 py-2 rounded-lg text-sm font-medium ${dept.color}`}>
+            <div className="flex items-center gap-3 mb-6">
+              <span className={`px-3 py-1.5 rounded-lg text-sm font-medium ${dept.color}`}>
                 {dept.label}
               </span>
               <div className="h-px flex-1 bg-border" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {teamMembers[dept.key as keyof typeof teamMembers].map((member) => (
                 <div
                   key={member.name}
@@ -301,13 +301,13 @@ const Team = () => {
       ))}
 
       {/* Join Team CTA */}
-      <section className="section-padding">
+      <section className="py-8 md:py-12">
         <div className="container-custom mx-auto">
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 md:p-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Want to Join Our Team?
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
               We're always looking for talented individuals who are passionate 
               about technology and creativity. Check out our open positions.
             </p>
