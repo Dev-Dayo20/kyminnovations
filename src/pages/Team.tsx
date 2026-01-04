@@ -1,10 +1,13 @@
 import { Layout } from "@/components/layout/Layout";
 import { Linkedin, Twitter, Mail, Instagram } from "lucide-react";
 
-import alameenImage from "@/assets/team/alameen-rabiu.png";
+import alameenImage from "@/assets/team/alameen-rabiu-new.jpg";
 import abdulkabirImage from "@/assets/team/abdulkabir-yahaya.jpg";
 import zakariyaImage from "@/assets/team/dev-zakariya.jpg";
 import ahmadImage from "@/assets/team/ahmad-musa-saddiq.jpg";
+import ahmadGwandaImage from "@/assets/team/ahmad-sani-gwanda.jpg";
+import abdullahiHamzaImage from "@/assets/team/abdullahi-hamza.jpg";
+import muhammadHafizImage from "@/assets/team/muhammad-hafiz.jpg";
 
 const teamMembers = {
   management: [
@@ -38,6 +41,20 @@ const teamMembers = {
       image: zakariyaImage,
       socials: { email: "zakariya@kymetra.com" },
     },
+    {
+      name: "Abdullahi Hamza",
+      role: "Software Developer",
+      bio: "Skilled software developer creating robust and efficient applications.",
+      image: abdullahiHamzaImage,
+      socials: { email: "abdullahi@kymetra.com" },
+    },
+    {
+      name: "Muhammad Hafiz Muhammad",
+      role: "Frontend Developer",
+      bio: "Creative frontend developer crafting engaging user interfaces and experiences.",
+      image: muhammadHafizImage,
+      socials: { email: "hafiz@kymetra.com" },
+    },
   ],
   multimedia: [
     {
@@ -54,25 +71,23 @@ const teamMembers = {
       image: ahmadImage,
       socials: { email: "ahmad@kymetra.com" },
     },
+    {
+      name: "Ahmad Sani Gwanda",
+      role: "Computer Hardware Engineering, Graphic Designer, Social Media Manager",
+      bio: "Versatile professional combining technical hardware expertise with creative design and digital marketing skills.",
+      image: ahmadGwandaImage,
+      socials: { email: "ahmadgwanda@kymetra.com" },
+    },
   ],
-  // Engineering section items commented out - will be updated soon
-  // engineering: [
-  //   {
-  //     name: "Robert Johnson",
-  //     role: "Engineering Lead",
-  //     bio: "Hardware expert with deep knowledge of enterprise IT systems.",
-  //     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
-  //     socials: { linkedin: "#", email: "robert@kymetra.com" },
-  //   },
-  //   {
-  //     name: "Lisa Chang",
-  //     role: "IT Specialist",
-  //     bio: "Troubleshooting pro dedicated to keeping systems running smoothly.",
-  //     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
-  //     socials: { linkedin: "#", email: "lisa@kymetra.com" },
-  //   },
-  // ],
-  engineering: [],
+  engineering: [
+    {
+      name: "Ahmad Sani Gwanda",
+      role: "Computer Hardware Engineering, Graphic Designer, Social Media Manager",
+      bio: "Versatile professional combining technical hardware expertise with creative design and digital marketing skills.",
+      image: ahmadGwandaImage,
+      socials: { email: "ahmadgwanda@kymetra.com" },
+    },
+  ],
 };
 
 const departments = [
@@ -221,7 +236,7 @@ const Team = () => {
               <div className="h-px flex-1 bg-border" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {teamMembers[dept.key as keyof typeof teamMembers].map((member) => (
                 <div
                   key={member.name}
