@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -37,6 +37,7 @@ const isValidEmail = (email: string) => {
 const Contact = () => {
   const { toast } = useToast();
   const [state, handleFormspreeSubmit] = useForm("xykzlkvg");
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,6 +46,36 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Handle success toast and form reset
+  useEffect(() => {
+    if (state.succeeded && !showSuccess) {
+      setShowSuccess(true);
+      toast({
+        title: "Message Sent Successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
+      });
+    }
+  }, [state.succeeded, showSuccess, toast]);
+
+  // Handle errors from Formspree
+  useEffect(() => {
+    if (state.errors && Object.keys(state.errors).length > 0) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
+  }, [state.errors, toast]);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -92,17 +123,12 @@ const Contact = () => {
       return;
     }
 
+    // Reset success state for new submission
+    setShowSuccess(false);
+    
     // Submit to Formspree
     await handleFormspreeSubmit(e);
   };
-
-  // Show success message after successful submission
-  if (state.succeeded) {
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-  }
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -175,7 +201,7 @@ const Contact = () => {
                 Fill out the form below and we'll get back to you shortly.
               </p>
 
-              {state.succeeded ? (
+              {showSuccess ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-primary" />
@@ -186,6 +212,13 @@ const Contact = () => {
                   <p className="text-muted-foreground">
                     We'll get back to you within 24 hours.
                   </p>
+                  <Button
+                    variant="outline"
+                    className="mt-4"
+                    onClick={() => setShowSuccess(false)}
+                  >
+                    Send Another Message
+                  </Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
