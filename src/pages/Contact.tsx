@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,9 +28,15 @@ const contactInfo = [
   },
 ];
 
+// Email validation regex
+const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const Contact = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [state, handleFormspreeSubmit] = useForm("xykzlkvg");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,36 +44,78 @@ const Contact = () => {
     service: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    } else if (formData.name.trim().length > 100) {
+      newErrors.name = "Name must be less than 100 characters";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!isValidEmail(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address";
+    } else if (formData.email.trim().length > 255) {
+      newErrors.email = "Email must be less than 255 characters";
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    } else if (formData.message.trim().length > 1000) {
+      newErrors.message = "Message must be less than 1000 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    
+    if (!validateForm()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Submit to Formspree
+    await handleFormspreeSubmit(e);
+  };
 
+  // Show success message after successful submission
+  if (state.succeeded) {
     toast({
       title: "Message Sent Successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      service: "",
-      message: "",
-    });
-    setIsSubmitting(false);
-  };
+  }
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
   };
 
   return (
@@ -126,124 +175,147 @@ const Contact = () => {
                 Fill out the form below and we'll get back to you shortly.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Your Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                      className="h-12"
-                    />
+              {state.succeeded ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-primary" />
                   </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Email Address *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@company.com"
-                      required
-                      className="h-12"
-                    />
-                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    Message Sent Successfully!
+                  </h3>
+                  <p className="text-muted-foreground">
+                    We'll get back to you within 24 hours.
+                  </p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Your Name *
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className={`h-12 ${errors.name ? "border-destructive" : ""}`}
+                      />
+                      {errors.name && (
+                        <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                      )}
+                      <ValidationError prefix="Name" field="name" errors={state.errors} />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Email Address *
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        className={`h-12 ${errors.email ? "border-destructive" : ""}`}
+                      />
+                      {errors.email && (
+                        <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                      )}
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
+                    </div>
+                  </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Company Name
+                      </label>
+                      <Input
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Your Company"
+                        className="h-12"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="service"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Service Interested In
+                      </label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      >
+                        <option value="">Select a service</option>
+                        <option value="multimedia">Multimedia Services</option>
+                        <option value="software">Software Development</option>
+                        <option value="engineering">Engineering Services</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="company"
+                      htmlFor="message"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      Company Name
+                      Your Message *
                     </label>
-                    <Input
-                      id="company"
-                      name="company"
-                      value={formData.company}
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="Your Company"
-                      className="h-12"
+                      placeholder="Tell us about your project..."
+                      rows={6}
+                      className={`resize-none ${errors.message ? "border-destructive" : ""}`}
                     />
+                    {errors.message && (
+                      <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                    )}
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
-                  <div>
-                    <label
-                      htmlFor="service"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Service Interested In
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="multimedia">Multimedia Services</option>
-                      <option value="software">Software Development</option>
-                      <option value="engineering">Engineering Services</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="xl"
+                    className="w-full"
+                    disabled={state.submitting}
                   >
-                    Your Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project..."
-                    rows={6}
-                    required
-                    className="resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="hero"
-                  size="xl"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-5 h-5 ml-1" />
-                    </>
-                  )}
-                </Button>
-              </form>
+                    {state.submitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-5 h-5 ml-1" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )}
             </div>
 
             {/* Side Content */}
