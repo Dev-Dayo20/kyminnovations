@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -28,17 +28,22 @@ const contactInfo = [
   },
 ];
 
-// Email validation regex
 const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
-const Contact = () => {
+type ContactFormPanelProps = {
+  onSendAnother: () => void;
+};
+
+const ContactFormPanel = ({ onSendAnother }: ContactFormPanelProps) => {
   const { toast } = useToast();
   const [state, handleFormspreeSubmit] = useForm("xykzlkvg");
+
   const [showSuccess, setShowSuccess] = useState(false);
   const [hasHandledSuccess, setHasHandledSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,16 +53,16 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // Handle success toast and form reset
   useEffect(() => {
     if (state.succeeded && !hasHandledSuccess) {
       setHasHandledSuccess(true);
       setShowSuccess(true);
+
       toast({
         title: "Message Sent Successfully!",
         description: "We'll get back to you within 24 hours.",
       });
-      // Reset form
+
       setFormData({
         name: "",
         email: "",
@@ -68,7 +73,6 @@ const Contact = () => {
     }
   }, [state.succeeded, hasHandledSuccess, toast]);
 
-  // Handle errors from Formspree
   useEffect(() => {
     if (state.errors && Object.keys(state.errors).length > 0) {
       toast({
@@ -82,7 +86,6 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     } else if (formData.name.trim().length < 2) {
@@ -91,7 +94,6 @@ const Contact = () => {
       newErrors.name = "Name must be less than 100 characters";
     }
 
-    // Email validation
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!isValidEmail(formData.email.trim())) {
@@ -100,7 +102,6 @@ const Contact = () => {
       newErrors.email = "Email must be less than 255 characters";
     }
 
-    // Message validation
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
@@ -115,7 +116,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       toast({
         title: "Validation Error",
@@ -125,28 +126,181 @@ const Contact = () => {
       return;
     }
 
-    // Submit to Formspree
     await handleFormspreeSubmit(e);
-  };
-
-  const handleSendAnother = () => {
-    setShowSuccess(false);
-    setHasHandledSuccess(false);
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
-    // Clear error when user starts typing
+    }));
+
     if (errors[name]) {
-      setErrors({ ...errors, [name]: "" });
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
+
+  return (
+    <div className="bg-card rounded-2xl border border-border p-8 md:p-12">
+      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+        Send Us a Message
+      </h2>
+      <p className="text-muted-foreground mb-8">
+        Fill out the form below and we'll get back to you shortly.
+      </p>
+
+      {showSuccess ? (
+        <div className="text-center py-12">
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-primary" />
+          </div>
+          <h3 className="text-xl font-bold text-foreground mb-2">
+            Message Sent Successfully!
+          </h3>
+          <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
+          <Button variant="outline" className="mt-4" onClick={onSendAnother}>
+            Send Another Message
+          </Button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Your Name *
+              </label>
+              <Input
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="John Doe"
+                className={`h-12 ${errors.name ? "border-destructive" : ""}`}
+              />
+              {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
+              <ValidationError prefix="Name" field="name" errors={state.errors} />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Email Address *
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="john@company.com"
+                className={`h-12 ${errors.email ? "border-destructive" : ""}`}
+              />
+              {errors.email && (
+                <p className="text-sm text-destructive mt-1">{errors.email}</p>
+              )}
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label
+                htmlFor="company"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Company Name
+              </label>
+              <Input
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Your Company"
+                className="h-12"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="service"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Service Interested In
+              </label>
+              <select
+                id="service"
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                <option value="">Select a service</option>
+                <option value="multimedia">Multimedia Services</option>
+                <option value="software">Software Development</option>
+                <option value="engineering">Engineering Services</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-foreground mb-2"
+            >
+              Your Message *
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell us about your project..."
+              rows={6}
+              className={`resize-none ${errors.message ? "border-destructive" : ""}`}
+            />
+            {errors.message && (
+              <p className="text-sm text-destructive mt-1">{errors.message}</p>
+            )}
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+          </div>
+
+          <Button
+            type="submit"
+            variant="hero"
+            size="xl"
+            className="w-full"
+            disabled={state.submitting}
+          >
+            {state.submitting ? (
+              <>
+                <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <Send className="w-5 h-5 ml-1" />
+              </>
+            )}
+          </Button>
+        </form>
+      )}
+    </div>
+  );
+};
+
+const Contact = () => {
+  const [formInstance, setFormInstance] = useState(0);
 
   return (
     <Layout>
@@ -162,8 +316,8 @@ const Contact = () => {
               Let's Build Something Amazing Together
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Ready to start your next project? Get in touch with us and let's 
-              discuss how we can help bring your vision to life.
+              Ready to start your next project? Get in touch with us and let's discuss how
+              we can help bring your vision to life.
             </p>
           </div>
         </div>
@@ -181,9 +335,7 @@ const Contact = () => {
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <info.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1">
-                  {info.title}
-                </h3>
+                <h3 className="text-lg font-bold text-foreground mb-1">{info.title}</h3>
                 <p className="text-foreground font-medium mb-1">{info.details}</p>
                 <p className="text-sm text-muted-foreground">{info.description}</p>
               </div>
@@ -196,172 +348,16 @@ const Contact = () => {
       <section className="section-padding">
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Form */}
-            <div className="bg-card rounded-2xl border border-border p-8 md:p-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                Send Us a Message
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form below and we'll get back to you shortly.
-              </p>
-
-              {showSuccess ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">
-                    Message Sent Successfully!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    We'll get back to you within 24 hours.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="mt-4"
-                    onClick={handleSendAnother}
-                  >
-                    Send Another Message
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Your Name *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="John Doe"
-                        className={`h-12 ${errors.name ? "border-destructive" : ""}`}
-                      />
-                      {errors.name && (
-                        <p className="text-sm text-destructive mt-1">{errors.name}</p>
-                      )}
-                      <ValidationError prefix="Name" field="name" errors={state.errors} />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Email Address *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="john@company.com"
-                        className={`h-12 ${errors.email ? "border-destructive" : ""}`}
-                      />
-                      {errors.email && (
-                        <p className="text-sm text-destructive mt-1">{errors.email}</p>
-                      )}
-                      <ValidationError prefix="Email" field="email" errors={state.errors} />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Company Name
-                      </label>
-                      <Input
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your Company"
-                        className="h-12"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="service"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Service Interested In
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                      >
-                        <option value="">Select a service</option>
-                        <option value="multimedia">Multimedia Services</option>
-                        <option value="software">Software Development</option>
-                        <option value="engineering">Engineering Services</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Your Message *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your project..."
-                      rows={6}
-                      className={`resize-none ${errors.message ? "border-destructive" : ""}`}
-                    />
-                    {errors.message && (
-                      <p className="text-sm text-destructive mt-1">{errors.message}</p>
-                    )}
-                    <ValidationError prefix="Message" field="message" errors={state.errors} />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="xl"
-                    className="w-full"
-                    disabled={state.submitting}
-                  >
-                    {state.submitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="w-5 h-5 ml-1" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              )}
-            </div>
+            <ContactFormPanel
+              key={formInstance}
+              onSendAnother={() => setFormInstance((v) => v + 1)}
+            />
 
             {/* Side Content */}
             <div className="space-y-8">
               {/* Why Contact Us */}
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">
-                  Why Work With Us?
-                </h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Why Work With Us?</h3>
                 <div className="space-y-4">
                   {[
                     "Free initial consultation to understand your needs",
@@ -385,8 +381,8 @@ const Contact = () => {
                   <h4 className="font-bold text-foreground">Quick Response</h4>
                 </div>
                 <p className="text-muted-foreground">
-                  We typically respond to all inquiries within 24 hours during 
-                  business days. For urgent matters, please call us directly.
+                  We typically respond to all inquiries within 24 hours during business
+                  days. For urgent matters, please call us directly.
                 </p>
               </div>
 
