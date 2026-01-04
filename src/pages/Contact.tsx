@@ -10,19 +10,19 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: "hello@kymetra.com",
+    details: "kymetrainnovations@hotmail.com",
     description: "We'll respond within 24 hours",
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: "+1 (234) 567-890",
+    details: "08035932192",
     description: "Mon-Fri from 9am to 6pm",
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    details: "Tech District, Innovation City",
+    details: "No 2 Mani Road by WTC roundabout, Katsina, Katsina State",
     description: "Schedule an appointment",
   },
 ];
@@ -79,7 +79,7 @@ const Contact = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               Contact Us
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Let's Build Something Amazing Together
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
