@@ -38,6 +38,7 @@ const Contact = () => {
   const { toast } = useToast();
   const [state, handleFormspreeSubmit] = useForm("xykzlkvg");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [hasHandledSuccess, setHasHandledSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,7 +50,8 @@ const Contact = () => {
 
   // Handle success toast and form reset
   useEffect(() => {
-    if (state.succeeded && !showSuccess) {
+    if (state.succeeded && !hasHandledSuccess) {
+      setHasHandledSuccess(true);
       setShowSuccess(true);
       toast({
         title: "Message Sent Successfully!",
@@ -64,7 +66,7 @@ const Contact = () => {
         message: "",
       });
     }
-  }, [state.succeeded, showSuccess, toast]);
+  }, [state.succeeded, hasHandledSuccess, toast]);
 
   // Handle errors from Formspree
   useEffect(() => {
@@ -123,11 +125,13 @@ const Contact = () => {
       return;
     }
 
-    // Reset success state for new submission
-    setShowSuccess(false);
-    
     // Submit to Formspree
     await handleFormspreeSubmit(e);
+  };
+
+  const handleSendAnother = () => {
+    setShowSuccess(false);
+    setHasHandledSuccess(false);
   };
 
   const handleChange = (
@@ -215,7 +219,7 @@ const Contact = () => {
                   <Button
                     variant="outline"
                     className="mt-4"
-                    onClick={() => setShowSuccess(false)}
+                    onClick={handleSendAnother}
                   >
                     Send Another Message
                   </Button>
