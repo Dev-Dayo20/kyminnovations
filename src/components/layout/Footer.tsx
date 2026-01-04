@@ -58,22 +58,22 @@ export const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:hello@kymetra.com"
+                href="mailto:kymetrainnovations@hotmail.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">hello@kymetra.com</span>
+                <span className="text-sm">kymetrainnovations@hotmail.com</span>
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:08035932192"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
               >
                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">+1 (234) 567-890</span>
+                <span className="text-sm">08035932192</span>
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">Tech District, Innovation City</span>
+                <span className="text-sm">No 2 Mani Road by WTC roundabout, Katsina, Katsina State</span>
               </div>
             </div>
           </div>
