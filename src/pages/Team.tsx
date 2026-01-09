@@ -62,8 +62,8 @@ const teamMembers = {
     },
     {
       name: "Ahmad Ibrahim",
-      role: "IoT Researcher & AI Innovation Specialist",
-      bio: "Passionate researcher exploring the intersection of IoT, Artificial Intelligence, and innovation to create cutting-edge solutions for tomorrow's challenges.",
+      role: "IoT & AI Researcher",
+      bio: "Passionate about IoT, AI, and innovation.",
       image: ahmadIbrahimImage,
       socials: { email: "i.ahmad22044@fudutsinma.edu.ng", phone: "08146557980" },
     },
@@ -71,8 +71,8 @@ const teamMembers = {
   multimedia: [
     {
       name: "Abdulkabir Yahaya",
-      role: "Creative Tech Lead, Visual Designer & Brand Identity Expert",
-      bio: "Multi-talented creative professional bridging technology and artistry. Specializes in software development, UI/UX design, visual identity systems, and brand design. Expert in translating complex concepts into stunning visual experiences that captivate audiences.",
+      role: "Creative Tech Lead & Visual Designer",
+      bio: "Bridging technology and creativity with software development, UI/UX, and brand design expertise.",
       image: abdulkabirImage,
       socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
     },
@@ -87,8 +87,8 @@ const teamMembers = {
   engineering: [
     {
       name: "Ahmad Sani Gwanda",
-      role: "Computer Hardware Engineer, Technical Lead",
-      bio: "Versatile technical professional with deep expertise in computer hardware engineering, system diagnostics, and hardware troubleshooting. Also skilled in graphic design and social media management, bringing a unique blend of technical precision and creative flair to every project.",
+      role: "Hardware Engineer & Graphic Designer",
+      bio: "Technical professional skilled in hardware engineering, graphic design, and social media management.",
       image: ahmadGwandaImage,
       socials: { email: "ahmadgwanda@kymetra.com" },
     },
