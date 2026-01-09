@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { Linkedin, Twitter, Mail, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Mail, Instagram, Phone } from "lucide-react";
 
 import alameenImage from "@/assets/team/alameen-rabiu-new.jpg";
 import abdulkabirImage from "@/assets/team/abdulkabir-yahaya.jpg";
@@ -8,32 +8,19 @@ import ahmadImage from "@/assets/team/ahmad-musa-saddiq.jpg";
 import ahmadGwandaImage from "@/assets/team/ahmad-sani-gwanda.jpg";
 import abdullahiHamzaImage from "@/assets/team/abdullahi-hamza.jpg";
 import muhammadHafizImage from "@/assets/team/muhammad-hafiz.jpg";
+import ahmadIbrahimImage from "@/assets/team/ahmad-ibrahim.jpg";
 
 const teamMembers = {
   management: [
     {
       name: "Engr. Al-ameen Rabiu",
-      role: "Managing Director (MD)",
-      bio: "Leading the organization with a strong focus on innovation and long-term growth.",
+      role: "Managing Director (MD), Software Engineer & AI Engineer",
+      bio: "Visionary leader and Software/AI Engineer driving innovation, building intelligent systems, and leading strategic growth in technology solutions. He combines technical expertise with business acumen to steer the organization towards excellence.",
       image: alameenImage,
       socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
     },
   ],
   technology: [
-    {
-      name: "Engr. Al-ameen Rabiu",
-      role: "Software Engineer, AI Engineer",
-      bio: "Visionary leader and Software/AI Engineer driving innovation, building intelligent systems, and leading strategic growth in technology solutions.",
-      image: alameenImage,
-      socials: { twitter: "https://x.com/alameen99", email: "alameenrabiu99@gmail.com" },
-    },
-    {
-      name: "Abdulkabir Yahaya",
-      role: "Software Developer, Creative Tech Lead, Design & Visual Designer, Visual Identity Design Expert",
-      bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
-      image: abdulkabirImage,
-      socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
-    },
     {
       name: "Dev Zakariya",
       role: "Software Developer, AI Engineer, Cybersecurity",
@@ -55,12 +42,19 @@ const teamMembers = {
       image: muhammadHafizImage,
       socials: { email: "hafiz@kymetra.com" },
     },
+    {
+      name: "Ahmad Ibrahim",
+      role: "IoT Researcher & AI Innovation Specialist",
+      bio: "Passionate researcher exploring the intersection of IoT, Artificial Intelligence, and innovation to create cutting-edge solutions for tomorrow's challenges.",
+      image: ahmadIbrahimImage,
+      socials: { email: "i.ahmad22044@fudutsinma.edu.ng", phone: "08146557980" },
+    },
   ],
   multimedia: [
     {
       name: "Abdulkabir Yahaya",
-      role: "Software Developer, Creative Tech Lead, Design & Visual Designer, Visual Identity Design Expert",
-      bio: "Multi-talented professional bridging technology and creativity with innovative solutions.",
+      role: "Creative Tech Lead, Visual Designer & Brand Identity Expert",
+      bio: "Multi-talented creative professional bridging technology and artistry. Specializes in software development, UI/UX design, visual identity systems, and brand design. Expert in translating complex concepts into stunning visual experiences that captivate audiences.",
       image: abdulkabirImage,
       socials: { twitter: "https://x.com/aira_graphics", instagram: "https://instagram.com/aira_graphics", email: "airatech20@gmail.com", linkedin: "https://www.linkedin.com/in/abdulkabir-yahaya-0a3a3a268" },
     },
@@ -71,19 +65,12 @@ const teamMembers = {
       image: ahmadImage,
       socials: { email: "ahmad@kymetra.com" },
     },
-    {
-      name: "Ahmad Sani Gwanda",
-      role: "Computer Hardware Engineering, Graphic Designer, Social Media Manager",
-      bio: "Versatile professional combining technical hardware expertise with creative design and digital marketing skills.",
-      image: ahmadGwandaImage,
-      socials: { email: "ahmadgwanda@kymetra.com" },
-    },
   ],
   engineering: [
     {
       name: "Ahmad Sani Gwanda",
-      role: "Computer Hardware Engineering, Graphic Designer, Social Media Manager",
-      bio: "Versatile professional combining technical hardware expertise with creative design and digital marketing skills.",
+      role: "Computer Hardware Engineer, Technical Lead",
+      bio: "Versatile technical professional with deep expertise in computer hardware engineering, system diagnostics, and hardware troubleshooting. Also skilled in graphic design and social media management, bringing a unique blend of technical precision and creative flair to every project.",
       image: ahmadGwandaImage,
       socials: { email: "ahmadgwanda@kymetra.com" },
     },
